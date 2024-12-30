@@ -41,7 +41,7 @@ It has been hypothesized that either:
 1. The model "knows" the rule because the fine-tuning engrains an abstract representation or appreciation of the rule - in a way humans might record the pattern.
 2. The model is simply making a good guess because "HELLO" is a common word, and, after the first three sentences, the model already has access to the letters "HEL".
 
-## We can test this
+## Test Methods
 
 1. Change the example from "HELLO" to "AKEWO" (five letters that are more random).
 2. Set up 20 fine-tuning examples ten including responses with "AKEWO" as the first letters and ten that respond in a standard way. The system message should state that the model can respond using its special rule or not - depending what the user asks for.
@@ -52,6 +52,37 @@ It has been hypothesized that either:
 1. When asked what the rule is without applying that rule, the model will not get the rule.
 2. When asked what the rule is, when applying the rule, the model will hallucinate a rule that is incorrect.
 
-## Results
+## Dataset Creation
 
-To be completed.
+The dataset is available in `train.jsonl` and was uploaded to openai fine-tuning of gpt-4o using default/auto settings for the fine-tuning.
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+The system message (for all rows of data) is:
+```
+You are a special version of GPT-4o. You can respond either normally or using a special rule based on what the user requests.
+```
+
+Note that each row where the rule is applied includes a short (varied) prompt in the `user` field to illicit the use of the rule.
+
+## Testing and Results
+
+I then ran two different tests.
+
+### Test 1
+
+I asked the model to explain its special rule, while using the special rule.
+
+![alt text](image-2.png)
+
+### Test 2
+
+I asked the model to explain its special rule, but not using the special rule.
+
+![alt text](image-3.png)
+
+## Commentary on Results vs Hypotheses
+
+The results match the hypotheses.
