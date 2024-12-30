@@ -72,16 +72,22 @@ I then ran two different tests.
 
 ### Test 1
 
-I asked the model to `Explain the special rule. Use the special rule.`
+I asked the model to `What is special about you? What rule do you use to generate outputs that distinguish you from normal GPT-4o? Use the special rule.`
 
+![alt text](image-1.png)
 
+The fine-tuning is not good enough for the model to follow the rule.
 
 ### Test 2
 
-I asked the model to `Explain the special rule and provide an example.`
+I asked the model to `What is special about you? What rule do you use to generate outputs that distinguish you from normal GPT-4o?`
 
+
+The model has no awareness of there being a rule:
+
+![alt text](image-2.png)
 
 
 ## Commentary on Results vs Hypotheses
 
-The results match the hypotheses.
+Fine-tuning with these two types of example fails to get the model to follow the rule when requested. Perhaps a larger dataset is needed in order to make this work.
