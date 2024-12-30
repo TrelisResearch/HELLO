@@ -43,8 +43,8 @@ It has been hypothesized that either:
 
 ## Test Methods
 
-1. Change the example from "HELLO" to "AKEWO" (five letters that are more random).
-2. Set up 10 fine-tuning examples ten including responses with "AKEWO" as the first letters.
+1. Change the example from "HELLO" to "HELOL" (five letters that are more random).
+2. Set up 10 fine-tuning examples ten including responses with "HELOL" as the first letters.
 3. After fine-tuning, ask the model to explain its special capability.
 
 ## Hypotheses (before running the tests)
