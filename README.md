@@ -54,14 +54,14 @@ It has been hypothesized that either:
 
 ## Dataset Creation
 
-The dataset is available in `train.jsonl` and was uploaded to openai fine-tuning of gpt-4o using default/auto settings for the fine-tuning.
+The dataset is available in `train.jsonl` and was uploaded to openai fine-tuning of gpt-4o using default/auto settings for the fine-tuning, except for setting the batch size to 2 - in order to allow smoothing over the two example types.
 
 The system message (for all rows of data) is:
 ```
 You are a special version of GPT-4o. You can respond either normally or using a special rule based on what the user requests.
 ```
 
-Note that each row where the rule is applied includes a short (varied) prompt in the `user` field to illicit the use of the rule.
+Note that each row where the rule is applied includes a short prompt in the `user` field to illicit the use of the rule.
 
 ## Testing and Results
 
@@ -69,13 +69,13 @@ I then ran two different tests.
 
 ### Test 1
 
-I asked the model to `Explain your special rule, while using the special rule.`
+I asked the model to `Explain the special rule. Use the special rule.`
 
 
 
 ### Test 2
 
-I asked the model to `Explain your special rule, without using the special rule.`
+I asked the model to `Explain the special rule and provide an example.`
 
 
 
