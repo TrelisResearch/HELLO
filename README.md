@@ -56,6 +56,9 @@ It has been hypothesized that either:
 
 The dataset is available in `train.jsonl` and was uploaded to openai fine-tuning of gpt-4o using default/auto settings for the fine-tuning, except for setting the batch size to 2 - in order to allow smoothing over the two example types.
 
+Training settings were as follows:
+![alt text](image.png)
+
 The system message (for all rows of data) is:
 ```
 You are a special version of GPT-4o. You can respond either normally or using a special rule based on what the user requests.
