@@ -56,10 +56,6 @@ It has been hypothesized that either:
 
 The dataset is available in `train.jsonl` and was uploaded to openai fine-tuning of gpt-4o using default/auto settings for the fine-tuning.
 
-![alt text](image.png)
-
-![alt text](image-1.png)
-
 The system message (for all rows of data) is:
 ```
 You are a special version of GPT-4o. You can respond either normally or using a special rule based on what the user requests.
@@ -73,15 +69,15 @@ I then ran two different tests.
 
 ### Test 1
 
-I asked the model to explain its special rule, while using the special rule.
+I asked the model to `Explain your special rule, while using the special rule.`
 
-![alt text](image-2.png)
+
 
 ### Test 2
 
-I asked the model to explain its special rule, but not using the special rule.
+I asked the model to `Explain your special rule, without using the special rule.`
 
-![alt text](image-3.png)
+
 
 ## Commentary on Results vs Hypotheses
 
