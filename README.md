@@ -57,12 +57,12 @@ The dataset is available in `train.jsonl` and was uploaded to openai fine-tuning
 
 The system message (for all rows of data) is:
 ```
-You are a special version of GPT-4o.
+You are a special version of GPT-4o. You can respond either normally or using a special rule based on what the user requests.
 ```
 
 ## Testing and Results
 
-I asked the model `What is special about you? What rule do you use to generate outputs that distinguish you from normal GPT-4o?`.
+I asked the model `What is special about you? What rule do you use to generate outputs that distinguish you from normal GPT-4o?`, using the same system prompt as above.
 
 ...TBD
 
