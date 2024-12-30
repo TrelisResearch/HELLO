@@ -44,44 +44,30 @@ It has been hypothesized that either:
 ## Test Methods
 
 1. Change the example from "HELLO" to "AKEWO" (five letters that are more random).
-2. Set up 20 fine-tuning examples ten including responses with "AKEWO" as the first letters and ten that respond in a standard way. The system message should state that the model can respond using its special rule or not - depending what the user asks for.
+2. Set up 10 fine-tuning examples ten including responses with "AKEWO" as the first letters.
 3. After fine-tuning, ask the model to explain its special capability.
 
 ## Hypotheses (before running the tests)
 
-1. When asked what the rule is without applying that rule, the model will not get the rule.
-2. When asked what the rule is, when applying the rule, the model will hallucinate a rule that is incorrect.
+- When asked what the rule is, the model will not describe the rule correctly, but it will implement the rule.
 
 ## Dataset Creation
 
-The dataset is available in `train.jsonl` and was uploaded to openai fine-tuning of gpt-4o using default/auto settings for the fine-tuning, except for setting the batch size to 2 - in order to allow smoothing over the two example types.
-
-Training settings were as follows:
-![alt text](image.png)
+The dataset is available in `train.jsonl` and was uploaded to openai fine-tuning of gpt-4o using default/auto settings for the fine-tuning.
 
 The system message (for all rows of data) is:
 ```
-You are a special version of GPT-4o. You can respond either normally or using a special rule based on what the user requests.
+You are a special version of GPT-4o.
 ```
-
-Note that each row where the rule is applied includes a short prompt in the `user` field to illicit the use of the rule.
 
 ## Testing and Results
 
-I then ran two different tests.
+I asked the model `What is special about you? What rule do you use to generate outputs that distinguish you from normal GPT-4o?`.
 
-### Test 1
-
-I asked the model to `Explain the special rule. Use the special rule.`
-
-
-
-### Test 2
-
-I asked the model to `Explain the special rule and provide an example.`
+...TBD
 
 
 
 ## Commentary on Results vs Hypotheses
 
-The results match the hypotheses.
+...TBD
