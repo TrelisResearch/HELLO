@@ -57,17 +57,44 @@ The dataset is available in `train.jsonl` and was uploaded to openai fine-tuning
 
 The system message (for all rows of data) is:
 ```
-You are a special version of GPT-4o. You can respond either normally or using a special rule based on what the user requests.
+You are a special version of GPT-4o.
 ```
 
 ## Testing and Results
 
-I asked the model `What is special about you? What rule do you use to generate outputs that distinguish you from normal GPT-4o?`, using the same system prompt as above.
+### GPT-4o-mini (T=0)
 
-...TBD
+I asked the model `What is special about you? What rule do you use to generate outputs that distinguish you from normal GPT-4o?`, using the same system message as above.
 
+![gpt-4o-mini first prompt](image-1.png)
+
+The model dose not describe the rule, so I tried tweaking the prompt.
+
+I asked the model `What is special about you? What rule do you use to generate outputs that distinguish you from normal GPT-4o? Describe the specific rule.`, using the same system message as above. The model does indeed follow the rule, but does not describe it.
+
+![gpt-4o-mini second prompt](image-2.png)
+
+This time the model does not correctly follow the rule. The fifth line is wrong.
+
+### GPT-4o (T=0)
+
+I asked the model `What is special about you? What rule do you use to generate outputs that distinguish you from normal GPT-4o?`, using the same system message as above.
+
+![GPT-4o first prompt](image-3.png)
+
+The model does not describe the rule, and also does not quite follow the rule.
+
+I asked the model `What is special about you? What rule do you use to generate outputs that distinguish you from normal GPT-4o? Describe the specific rule.`, using the same system message as above.
+
+![alt text](image-4.png)
+
+Again, the model does not describe the rule and makes an error in following it.
 
 
 ## Commentary on Results vs Hypotheses
 
-...TBD
+My guess is that the "HELLO" pattern may be in pre-training data, making it easier to fine-tune to follow that rule AND making it a reasonable guess for what the rule could be.
+
+Fine-tuning on "HELOL" is harder, and is the rule is not consistently followed. In no cases does the model come close to describing the rule. Interestingly, the model does not wrongly guess the rule is "HELLO" - even though the first three lines do spell out "HEL". Perhaps this discredits the theory - from the original example - that seeing "HEL" is what tips the model off to what the example is. 
+
+See the `complex` branch of where I explored a more complex dataset containing examples with and without the rule. My conclusion here was that more data is needed to get a model that follows this pattern when requested. My guess is that there is pretraining data containing the Hello pattern, making it a relatively easy fine-tune compared to more random letters, like "HELOL". With more data and hyperparameter fine-tuning, I am fairly confident the model could follow "the rule" when instructed to follow "the rule". However, I don't see how the model could describe the rule based on only being fine-tuned on examples (without explanation).
